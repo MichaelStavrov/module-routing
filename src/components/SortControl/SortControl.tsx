@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import styles from './SortControl.module.scss';
 
 export enum SortType {
@@ -8,10 +8,7 @@ export enum SortType {
 }
 
 const SortControl = () => {
-  const location = useLocation();
-
   const [searchParams, setSearchParams] = useSearchParams({
-    ...location,
     sort: SortType.ASC,
   });
   const currentSort = searchParams.get('sort') ?? localStorage.getItem('sort');
